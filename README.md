@@ -1,2 +1,3 @@
 # UrbanHub
-All the scripts under "Urban Hub"
+-- Join the discord for update.
+https://discord.gg/NZpS6ugu8X
