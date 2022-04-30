@@ -1,21 +1,69 @@
+--[[
+ /$$   /$$           /$$                                 /$$   /$$           /$$      
+| $$  | $$          | $$                                | $$  | $$          | $$      
+| $$  | $$  /$$$$$$ | $$$$$$$   /$$$$$$  /$$$$$$$       | $$  | $$ /$$   /$$| $$$$$$$ 
+| $$  | $$ /$$__  $$| $$__  $$ |____  $$| $$__  $$      | $$$$$$$$| $$  | $$| $$__  $$
+| $$  | $$| $$  \__/| $$  \ $$  /$$$$$$$| $$  \ $$      | $$__  $$| $$  | $$| $$  \ $$
+| $$  | $$| $$      | $$  | $$ /$$__  $$| $$  | $$      | $$  | $$| $$  | $$| $$  | $$
+|  $$$$$$/| $$      | $$$$$$$/|  $$$$$$$| $$  | $$      | $$  | $$|  $$$$$$/| $$$$$$$/
+\______/ |__/      |_______/  \_______/|__/  |__/      |__/  |__/ \______/ |_______/                                                                                 
+]]
+
 getgenv().UrbanKey = ""
+local function DiscordInviter(DiscordCode)
+    pcall(function()
+        --Urban Hub Auto joiner
+        local JSONEncode, JSONDecode, GenerateGUID = 
+        game.HttpService.JSONEncode, 
+        game.HttpService.JSONDecode,
+        game.HttpService.GenerateGUID
+        local Request = syn and syn.request or request
+        Request({
+            Url = "http://127.0.0.1:6463/rpc?v=1",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json",
+                ["Origin"] = "https://discord.com"
+            },
+            Body = JSONEncode(game.HttpService, {
+                cmd = "INVITE_BROWSER",
+                args = {
+                    code = DiscordCode
+                },
+                nonce = GenerateGUID(game.HttpService, false)
+            }),
+        })
+    end)
+end
+
+local function LoadScript(ScriptString)
+    loadstring(game:HttpGet((ScriptString),true))()
+end
+
 if UrbanKey == "" then
     if game.GameId == 3471372453 then -- Find The Anime
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Find%20The%20Anime.Lua'),true))()
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Find%20The%20Anime.Lua')
+        DiscordInviter("NZpS6ugu8X")
+    elseif game.GameId == 3108473052 then
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Demon%20Soul%20Simulator.lua')
+        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
-        --Loadstring
+        LoadScript('')
+        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
-        --Loadstring
+        LoadScript('')
+        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
-        --Loadstring
+        LoadScript('')
+        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
-        --Loadstring
+        LoadScript('')
+        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
-        --Loadstring
+        LoadScript('')
+        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
-        --Loadstring
-    elseif game.GameId == 0 then
-        --Loadstring
-    
+        LoadScript('')
+        DiscordInviter("NZpS6ugu8X")
     end
 end
