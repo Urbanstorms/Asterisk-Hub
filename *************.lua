@@ -1,4 +1,6 @@
 Keys_Table = {
-    "Kool Kids Klub",
-    "UrbansTestKey"
+    ["Kool Kids Klub"] = true,
+    ["UrbansTestKey"] = true
 }
+
+return Keys_Table
