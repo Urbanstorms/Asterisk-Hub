@@ -63,5 +63,5 @@ if UrbanKey == "Kool Kids Klub" then
         DiscordInviter("NZpS6ugu8X")
     end
 else
-LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/KickScript.lua')
+    LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/KickScript.lua')
 end
