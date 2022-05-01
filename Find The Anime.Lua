@@ -7,7 +7,8 @@
 | $$  | $$| $$      | $$  | $$ /$$__  $$| $$  | $$      | $$  | $$| $$  | $$| $$  | $$
 |  $$$$$$/| $$      | $$$$$$$/|  $$$$$$$| $$  | $$      | $$  | $$|  $$$$$$/| $$$$$$$/
 \______/ |__/      |_______/  \_______/|__/  |__/       |__/  |__/ \______/ |_______/                                                                                 
-]] -- Custom tween func & noclip + antifall.
+]]
+-- Custom tween func & noclip + antifall.
 local TweenService = game:GetService("TweenService")
 local noclipE = true
 local antifall = true
@@ -44,19 +45,19 @@ end
 
 -----Functions end
 
---Auto Render
+-- Auto Render
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5, 197, 354)
-task.wait(2)--
+task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-744, 79, -94)
-task.wait(2)--
+task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-657, 67, -446)
-task.wait(2)--
+task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-259, 94, -676)
-task.wait(2)--
+task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(229, 164, -621)
-task.wait(2)--
+task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(653, 64, -311)
-task.wait(2)--
+task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 19, 70)
 
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Lib.lua"))()
