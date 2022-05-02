@@ -9,6 +9,7 @@
 \______/ |__/      |_______/  \_______/|__/  |__/      |__/  |__/ \______/ |_______/                                                                                 
 ]]
 local function DiscordInviter(DiscordCode)
+
     pcall(function()
         -- Urban Hub Auto joiner
         local JSONEncode, JSONDecode, GenerateGUID = game.HttpService.JSONEncode, game.HttpService.JSONDecode,
@@ -32,11 +33,13 @@ local function DiscordInviter(DiscordCode)
     end)
 end
 
+local shitsngiggles = loadstring(game:HttpGet('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/*************.lua'))()
+
 local function LoadScript(ScriptString)
     loadstring(game:HttpGet((ScriptString), true))()
 end
 
-if UrbanKey == "Kool Kids Klub" then
+if shitsngiggles[getgenv().UrbanKey] then
     if game.GameId == 3471372453 then -- Find The Anime
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Find%20The%20Anime.Lua')
         DiscordInviter("NZpS6ugu8X")
@@ -60,6 +63,9 @@ if UrbanKey == "Kool Kids Klub" then
         DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
         LoadScript('')
+        DiscordInviter("NZpS6ugu8X")
+    else
+        game.Players.LocalPlayer:Kick("Invalid Game")
         DiscordInviter("NZpS6ugu8X")
     end
 else
