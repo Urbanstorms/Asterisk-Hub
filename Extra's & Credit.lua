@@ -1,3 +1,4 @@
+Creds = {
 local Credits = Menu.New({
     Title = "Credits"
 })
@@ -26,3 +27,5 @@ local A = Credits.Button({
         end)
     end
 })
+}
+return Creds
