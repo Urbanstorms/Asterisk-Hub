@@ -49,8 +49,8 @@ if shitsngiggles[getgenv().UrbanKey] then
     elseif game.GameId == 1800603069 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/12%2C003%20Badge%20Walk.lua')
         DiscordInviter("NZpS6ugu8X")
-    elseif game.GameId == 0 then
-        LoadScript('')
+    elseif game.GameId == 2719512531 then
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Reaper%202.lua')
         DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
         LoadScript('')
