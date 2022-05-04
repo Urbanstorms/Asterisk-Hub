@@ -512,7 +512,7 @@ local D = Teleports.Dropdown({
     Callback = function(Value)
         getgenv().NPCTP = Value
     end,
-    Options = NPCTP,
+    Options = NPC,
     Menu = {
         Information = function(self)
             Menu.Banner({
