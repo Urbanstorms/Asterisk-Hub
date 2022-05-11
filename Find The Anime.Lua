@@ -7,7 +7,10 @@
 | $$  | $$| $$      | $$  | $$ /$$__  $$| $$  | $$      | $$  | $$| $$  | $$| $$  | $$
 |  $$$$$$/| $$      | $$$$$$$/|  $$$$$$$| $$  | $$      | $$  | $$|  $$$$$$/| $$$$$$$/
 \______/ |__/      |_______/  \_______/|__/  |__/       |__/  |__/ \______/ |_______/                                                                                 
-]]
+]] local function LoadScript(ScriptString)
+    loadstring(game:HttpGet((ScriptString), true))()
+end
+
 -- Custom tween func & noclip + antifall.
 local TweenService = game:GetService("TweenService")
 local noclipE = true
@@ -58,6 +61,8 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(229, 164
 task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(653, 64, -311)
 task.wait(2) --
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(773, 52, 111)
+task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 19, 70)
 
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Lib.lua"))()
@@ -73,10 +78,28 @@ local Main = Menu.New({
 })
 
 ---
-Poggers = 282
+
+local shit = game.Players.LocalPlayer.Character.HumanoidRootPart.PlayerInfo
+local A = Main.Toggle({
+    Text = "Auto-hide overhead",
+    Callback = function(t)
+        HideOverHead = t
+        while HideOverHead do
+            task.wait(0.5)
+            pcall(function()
+                if shit.Enabled == true then
+                    shit.Enabled = false
+                end
+            end)
+        end
+    end,
+    Enabled = false
+})
+
+Poggers = 312
 
 local A = Main.Toggle({
-    Text = "Auto Collect & Rebirth",
+    Text = "Auto-Collect & Rebirth",
     Callback = function(t)
         AutoRebCol = t
         while AutoRebCol do
@@ -132,7 +155,6 @@ local A = Main.Button({
         end
     }
 })
-
 local Credits = Menu.New({
     Title = "Credits"
 })
