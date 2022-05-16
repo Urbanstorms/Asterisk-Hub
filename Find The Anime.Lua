@@ -96,7 +96,7 @@ local A = Main.Toggle({
     Enabled = false
 })
 
-Poggers = 312
+Poggers = 340
 
 local A = Main.Toggle({
     Text = "Auto-Collect & Rebirth",
