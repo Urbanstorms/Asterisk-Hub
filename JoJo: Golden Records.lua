@@ -104,7 +104,7 @@ local B = Main.Toggle({
                             noclip()
                             task.wait()
                             game:GetService("ReplicatedStorage").RemoteEvent:FireServer("MouseClick")
-                            shithead.HumanoidRootPart.CFrame = CFrame.new(v.Position + Vector3.new(0, Distancem, 0))
+                            shithead.HumanoidRootPart.CFrame = CFrame.new(v.Position + Vector3.new(0, Distancem, 0)) * CFrame.Angles(math.rad(90),0,0)
                         until v.ObjectHealth.Value <= 0 or not Meteor_Farm
                     end
                 end
@@ -114,15 +114,15 @@ local B = Main.Toggle({
     Enabled = false
 })
 
-Distancem = 1
+Distancem = -4
 local C = Main.Slider({
     Text = "Meteor Farm Distance",
     Callback = function(t)
         Distancem = t
     end,
     Min = -20,
-    Max = 20,
-    Def = 1
+    Max = 1,
+    Def = -4
 })
 
 local B = Main.Toggle({
@@ -135,7 +135,7 @@ local B = Main.Toggle({
                 for i, v in pairs(game:GetService("Workspace")["Rokakaka Trees"]:GetDescendants()) do
                     if v:IsA("ProximityPrompt") then
                         repeat
-                            shithead.HumanoidRootPart.CFrame = v.Parent.CFrame + Vector3.new(0, Distancer, 0)
+                            shithead.HumanoidRootPart.CFrame = v.Parent.CFrame + Vector3.new(0, Distancer, 0) * CFrame.Angles(math.rad(0),0,0)
                             task.wait()
                             fireproximityprompt(v)
                             task.wait(0.5)
