@@ -63,6 +63,8 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(653, 64,
 task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(773, 52, 111)
 task.wait(2) --
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28, 73, 665)
+task.wait(2) --spawn
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 19, 70)
 
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Lib.lua"))()
