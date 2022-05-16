@@ -64,7 +64,7 @@ task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(773, 52, 111)
 task.wait(2) --
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28, 73, 665)
-task.wait(2) --spawn
+task.wait(2) -- spawn
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 19, 70)
 
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Lib.lua"))()
@@ -105,13 +105,13 @@ local A = Main.Toggle({
     Callback = function(t)
         AutoRebCol = t
         while AutoRebCol do
-            task.wait(1)
+            task.wait(2)
             for i = 1, Poggers do
                 task.wait()
                 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game.Workspace.Fighters[i], 0) -- 0 is touch
                 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game.Workspace.Fighters[i], 1) -- 1 is untouch
             end
-            task.wait(0.5)
+            task.wait(1)
             local Numbs = {13, 12}
             for i, v in next, Numbs do
                 task.wait()
