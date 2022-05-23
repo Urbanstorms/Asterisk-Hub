@@ -196,7 +196,7 @@ local A = Main.Toggle({
     Text = "Start farm",
     Callback = function(Value)
         Autofarm = Value
-        while Autofarm do
+        while Autofarm do task.wait()
             pcall(function()
                 if game.Players.LocalPlayer.PlayerGui.QuestGui.Enabled == false then
                     for i, v in pairs(game:GetService("Workspace").World.NPCS.Quests:GetDescendants()) do
