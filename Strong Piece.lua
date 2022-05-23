@@ -68,6 +68,33 @@ for i, v in pairs(game:GetService("Workspace").World.NPCS.Quests:GetDescendants(
     end
 end
 
+local BlockedRemotes = {"Swim"}
+
+local Events = {
+    Fire = true,
+    Invoke = true,
+    FireServer = true,
+    InvokeServer = true
+}
+
+local gameMeta = getrawmetatable(game)
+local psuedoEnv = {
+    ["__index"] = gameMeta.__index,
+    ["__namecall"] = gameMeta.__namecall
+}
+setreadonly(gameMeta, false)
+gameMeta.__index, gameMeta.__namecall = newcclosure(function(self, index, ...)
+    if Events[index] then
+        for i, v in pairs(BlockedRemotes) do
+            if v == self.Name and not checkcaller() then
+                return nil
+            end
+        end
+    end
+    return psuedoEnv.__index(self, index, ...)
+end)
+setreadonly(gameMeta, true)
+
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Lib.lua"))()
 local Menu = Material.Load({
     Title = "Urban Hub | Strong Piece",
@@ -106,7 +133,7 @@ local B = Main.Toggle({
             pcall(function()
                 for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                     if v.Name == SelectedWeapon then
-                        wait(3.5)
+                        task.wait(0.5)
                         game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
                     end
                 end
@@ -169,14 +196,15 @@ local A = Main.Toggle({
     Text = "Start farm",
     Callback = function(Value)
         Autofarm = Value
-        while Autofarm and wait() do
+        while Autofarm do
             pcall(function()
                 if game.Players.LocalPlayer.PlayerGui.QuestGui.Enabled == false then
                     for i, v in pairs(game:GetService("Workspace").World.NPCS.Quests:GetDescendants()) do
                         if v.Name == SelectedQuest then
                             repeat
                                 noclip()
-                                moveto(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(-90), 0, 0) + Vector3.new(0, 7, 0), TSpeed)
+                                moveto(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(-90), 0, 0) +
+                                           Vector3.new(0, 7, 0), TSpeed)
                                 noclip()
                                 fireproximityprompt(v.Proximity)
                                 task.wait()
@@ -189,10 +217,12 @@ local A = Main.Toggle({
                         if v.Name == Mobz then
                             repeat
                                 noclip()
-                                moveto(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(-90), 0, 0) + Vector3.new(0, Distance, 0), TSpeed)
+                                moveto(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(-90), 0, 0) +
+                                           Vector3.new(0, Distance, 0), TSpeed)
                                 noclip()
                                 task.wait()
-                            until game.Players.LocalPlayer.PlayerGui.QuestGui.Enabled == false or v.Humanoid.Health <= 0 or not Autofarm
+                            until game.Players.LocalPlayer.PlayerGui.QuestGui.Enabled == false or v.Humanoid.Health <= 0 or
+                                not Autofarm
                         end
                     end
                 end
@@ -290,8 +320,57 @@ local C = Extra.Slider({
         KillHealth = (Value)
     end,
     Min = 1,
-    Max = 100,
+    Max = 99,
     Def = 50
+})
+
+local B = Extra.Toggle({
+    Text = "Fruit Sniper",
+    Callback = function(t)
+        fruitsniper = t
+        while fruitsniper do
+            wait()
+            pcall(function()
+                for i, v in pairs(game.Workspace:GetChildren()) do
+                    if v:IsA("Tool") then
+                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                    end
+                end
+            end)
+        end
+    end,
+    Enabled = false
+})
+
+--[[Old Fruit Sniper
+local B = Extra.Toggle({
+    Text = "Fruit Sniper",
+    Callback = function(t)
+        Fruit_Sniper = t
+        while Fruit_Sniper do task.wait()
+            pcall(function()
+                for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+                    if v:IsA("Tool") then
+                            --moveto(v.Handle.CFrame * CFrame.Angles(math.rad(-90), 0, 0) + Vector3.new(0, 0, 0), TSpeed)
+                            firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle, 0) --0 is touch
+                            task.wait()
+                            firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle, 1) -- 1 is untouch
+                    end
+                end
+            end)
+        end
+    end,
+    Enabled = false
+})
+]]
+
+local A = Extra.Button({
+    Text = "Open Inventory",
+    Callback = function()
+        pcall(function()
+            fireclickdetector(game:GetService("Workspace").World.NPCS.Inventorys.Inventory.ClickDetector)
+        end)
+    end
 })
 
 ---
