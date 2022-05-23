@@ -192,7 +192,7 @@ local A = Main.Toggle({
                                 moveto(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(-90), 0, 0) + Vector3.new(0, Distance, 0), TSpeed)
                                 noclip()
                                 task.wait()
-                            until v.Humanoid.Health <= 0 or not Autofarm
+                            until game.Players.LocalPlayer.PlayerGui.QuestGui.Enabled == false or v.Humanoid.Health <= 0 or not Autofarm
                         end
                     end
                 end
