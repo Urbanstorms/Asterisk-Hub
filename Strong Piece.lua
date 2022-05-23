@@ -315,7 +315,7 @@ local A = Extra.Button({
     }
 })
 local C = Extra.Slider({
-    Text = "Kill when health at this percentage. (Set before clicking button) ^^",
+    Text = "Kill when health at this percentage.",
     Callback = function(Value)
         KillHealth = (Value)
     end,
