@@ -40,7 +40,7 @@ local function LoadScript(ScriptString)
 end
 
 if shitsngiggles[getgenv().UrbanKey] then
-    if game.GameId == 3471372453 then -- Find The Anime
+    if game.GameId == 3471372453 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Find%20The%20Anime.Lua')
         DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 3108473052 then
@@ -55,8 +55,8 @@ if shitsngiggles[getgenv().UrbanKey] then
     elseif game.GameId == 2639872821 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/JoJo%3A%20Golden%20Records.lua')
         DiscordInviter("NZpS6ugu8X")
-    elseif game.GameId == 0 then
-        LoadScript('')
+    elseif game.GameId == 3536510697 then
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Strong%20Piece.lua')
         DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
         LoadScript('')
