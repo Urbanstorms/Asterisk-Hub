@@ -46,6 +46,14 @@ local function moveto(obj, speed)
     end)
 end
 
+local mob_table = {};
+for i, v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+    if not table.find(mob_table, v.Name) and v:FindFirstChild("HumanoidRootPart") then
+        table.sort(mob_table)
+        table.insert(mob_table, v.name)
+    end
+end
+
 -----Functions end
 
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Lib.lua"))()
@@ -84,6 +92,76 @@ local A = Main.Button({
     end
 })
 
+local D = Main.Dropdown({
+    Text = "Mobs",
+    Callback = function(Value)
+        Mobz = Value
+    end,
+    Options = mob_table,
+    Menu = {
+        Information = function(self)
+            Menu.Banner({
+                Text = "Select the mob you wish to farm."
+            })
+        end
+    }
+})
+
+--[[Auto quest maybe
+local D = Main.Dropdown({
+    Text = "Quest",
+    Callback = function(Value)
+        SelectedQuest = Value
+    end,
+    Options = Quest,
+    Menu = {
+        Information = function(self)
+            Menu.Banner({
+                Text = "Select the quest you wish to farm."
+            })
+        end
+    }
+})
+]]
+-- SelectedQuest = ""
+Mobz = nil
+
+local A = Main.Toggle({
+    Text = "Start mob farm",
+    Callback = function(Value)
+        Autofarm = Value
+        while Autofarm do
+            task.wait()
+            pcall(function()
+                for i, v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+                    if v.Name == Mobz then
+                        repeat
+                            noclip()
+                            game:GetService("ReplicatedStorage").RemoteEvent:FireServer("MouseClick")
+                            shithead.HumanoidRootPart.CFrame =
+                                CFrame.new(v.HumanoidRootPart.Position + Vector3.new(0, Distancemm, 0)) *
+                                    CFrame.Angles(math.rad(-90), 0, 0)
+                            task.wait()
+                        until v.Humanoid.Health <= 0 or not Autofarm
+                    end
+                end
+            end);
+        end
+    end,
+    Enabled = false
+})
+
+Distancemm = 7
+local C = Main.Slider({
+    Text = "Distance",
+    Callback = function(Value)
+        Distancemm = (Value)
+    end,
+    Min = 0,
+    Max = 20,
+    Def = 7
+})
+
 local B = Main.Toggle({
     Text = "Meteor Farm",
     Callback = function(t)
@@ -104,7 +182,9 @@ local B = Main.Toggle({
                             noclip()
                             task.wait()
                             game:GetService("ReplicatedStorage").RemoteEvent:FireServer("MouseClick")
-                            shithead.HumanoidRootPart.CFrame = CFrame.new(v.Position + Vector3.new(0, Distancem, 0)) * CFrame.Angles(math.rad(90),0,0)
+                            shithead.HumanoidRootPart.CFrame =
+                                CFrame.new(v.Position + Vector3.new(0, Distancem, 0)) *
+                                    CFrame.Angles(math.rad(90), 0, 0)
                         until v.ObjectHealth.Value <= 0 or not Meteor_Farm
                     end
                 end
@@ -135,7 +215,8 @@ local B = Main.Toggle({
                 for i, v in pairs(game:GetService("Workspace")["Rokakaka Trees"]:GetDescendants()) do
                     if v:IsA("ProximityPrompt") then
                         repeat
-                            shithead.HumanoidRootPart.CFrame = v.Parent.CFrame + Vector3.new(0, Distancer, 0) * CFrame.Angles(math.rad(0),0,0)
+                            shithead.HumanoidRootPart.CFrame =
+                                v.Parent.CFrame + Vector3.new(0, Distancer, 0) * CFrame.Angles(math.rad(0), 0, 0)
                             task.wait()
                             fireproximityprompt(v)
                             task.wait(0.5)
