@@ -7,9 +7,10 @@ Keys_Table = {
     ["GiveMeSuggestions!"] = false, --Expired 5/23/2022
     ["StrongPiece"] = false, --Expired 5/25/2022
     ["SuggestSomeGames!"] = false, --Expired 6/1/2022
-    ["NZpS6ugu8X"] = true,
+    ["NZpS6ugu8X"] = false, --Expired 6/10/2022
+    ["I GOT COVID"] = true,
     
-    ["UrbanCools"] = true --Urban's perma key, you can ofc use this but I'll probably change it if I see its use from time to time.
+    ["UrbanCoolss"] = true --Urban's perma key, you can ofc use this but I'll probably change it if I see its use from time to time.
 }
 
 return Keys_Table
