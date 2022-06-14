@@ -7,8 +7,7 @@
 | $$  | $$| $$      | $$  | $$ /$$__  $$| $$  | $$      | $$  | $$| $$  | $$| $$  | $$
 |  $$$$$$/| $$      | $$$$$$$/|  $$$$$$$| $$  | $$      | $$  | $$|  $$$$$$/| $$$$$$$/
 \______/ |__/      |_______/  \_______/|__/  |__/      |__/  |__/ \______/ |_______/                                                                                 
-]]
-local function DiscordInviter(DiscordCode)
+]] local function DiscordInviter(DiscordCode)
 
     pcall(function()
         -- Urban Hub Auto joiner
@@ -33,7 +32,8 @@ local function DiscordInviter(DiscordCode)
     end)
 end
 
-local shitsngiggles = loadstring(game:HttpGet('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/*************.lua'))()
+local shitsngiggles = loadstring(game:HttpGet(
+    'https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/*************.lua'))()
 
 local function LoadScript(ScriptString)
     loadstring(game:HttpGet((ScriptString), true))()
@@ -42,32 +42,26 @@ end
 if shitsngiggles[getgenv().UrbanKey] then
     if game.GameId == 3471372453 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Find%20The%20Anime.Lua')
-        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 3108473052 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Demon%20Soul%20Simulator.lua')
-        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 1800603069 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/12%2C003%20Badge%20Walk.lua')
-        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 2719512531 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Reaper%202.lua')
-        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 2639872821 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/JoJo%3A%20Golden%20Records.lua')
-        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 3536510697 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Strong%20Piece.lua')
-        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
         LoadScript('')
-        DiscordInviter("NZpS6ugu8X")
     elseif game.GameId == 0 then
         LoadScript('')
-        DiscordInviter("NZpS6ugu8X")
     else
         game.Players.LocalPlayer:Kick("Invalid Game")
-        DiscordInviter("NZpS6ugu8X")
+        
     end
 else
     LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/KickScript.lua')
+    task.wait(1)
+    DiscordInviter("NZpS6ugu8X")
 end
