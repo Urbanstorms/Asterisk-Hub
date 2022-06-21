@@ -97,7 +97,7 @@ gameMeta.__index, gameMeta.__namecall = newcclosure(function(self, index, ...)
 end)
 setreadonly(gameMeta, true)
 
-local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Loader.Lua"))()
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Lib.lua"))()
 local Menu = Material.Load({
     Title = "Asterisk Hub | Strong Piece",
     Style = 1,
