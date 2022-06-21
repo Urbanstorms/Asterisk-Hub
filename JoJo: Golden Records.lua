@@ -57,7 +57,7 @@ end
 
 -----Functions end
 
-local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Loader.Lua"))()
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Lib.lua"))()
 local Menu = Material.Load({
     Title = "Asterisk Hub | JoJo: Golden Records",
     Style = 1,
