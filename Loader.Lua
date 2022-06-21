@@ -63,7 +63,7 @@ if shitsngiggles[getgenv().UrbanKey] then
         
     end
 else
-    LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/KickScript.lua')
+    LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/KickScript.lua')
     task.wait(1)
     DiscordInviter("NZpS6ugu8X")
 end
