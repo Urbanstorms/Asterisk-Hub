@@ -33,7 +33,7 @@ local function DiscordInviter(DiscordCode)
 end
 
 local shitsngiggles = loadstring(game:HttpGet(
-    'https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/*************.lua'))()
+    'https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/*************.lua'))()
 
 local function LoadScript(ScriptString)
     loadstring(game:HttpGet((ScriptString), true))()
@@ -41,17 +41,17 @@ end
 
 if shitsngiggles[getgenv().UrbanKey] then
     if game.GameId == 3471372453 then
-        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Find%20The%20Anime.Lua')
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Find%20The%20Anime.Lua')
     elseif game.GameId == 3108473052 then
-        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Demon%20Soul%20Simulator.lua')
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Demon%20Soul%20Simulator.lua')
     elseif game.GameId == 1800603069 then
-        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/12%2C003%20Badge%20Walk.lua')
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/12%2C003%20Badge%20Walk.lua')
     elseif game.GameId == 2719512531 then
-        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Reaper%202.lua')
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Reaper%202.lua')
     elseif game.GameId == 2639872821 then
-        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/JoJo%3A%20Golden%20Records.lua')
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/JoJo%3A%20Golden%20Records.lua')
     elseif game.GameId == 3536510697 then
-        LoadScript('https://raw.githubusercontent.com/Urbanstorms/UrbanHub/main/Strong%20Piece.lua')
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Strong%20Piece.lua')
     elseif game.GameId == 0 then
         LoadScript('')
     elseif game.GameId == 0 then
