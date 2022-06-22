@@ -9,9 +9,11 @@ Keys_Table = {
     ["SuggestSomeGames!"] = false, --Expired 6/1/2022
     ["NZpS6ugu8X"] = false, --Expired 6/10/2022
     ["I GOT COVID"] = false, --Expired 6/14/2022
-    ["WeGettinUpdatesBois!"] = true,
+    ["WeGettinUpdatesBois!"] = false, --Expired 6/22/2022
+    ["HowsLife?"] = true, --Active
+    [""] = false, --InActive
     
-    ["SexIsFunISwear!"] = true --Urban's perma key, you can ofc use this but I'll probably change it if I see its use from time to time.
+    ["ImSoDamnHot!"] = true --Urban's perma key, you can ofc use this but I'll probably change it if I see its use from time to time.
 }
 
 return Keys_Table
