@@ -7,8 +7,7 @@
 | $$  | $$ \____  $$  | $$ /$$| $$_____/| $$      | $$ \____  $$| $$_  $$       | $$  | $$| $$  | $$| $$  | $$
 | $$  | $$ /$$$$$$$/  |  $$$$/|  $$$$$$$| $$      | $$ /$$$$$$$/| $$ \  $$      | $$  | $$|  $$$$$$/| $$$$$$$/
 |__/  |__/|_______/    \___/   \_______/|__/      |__/|_______/ |__/  \__/      |__/  |__/ \______/ |_______/                                                                              
-]]
--- Custom tween func & noclip + antifall.
+]] -- Custom tween func & noclip + antifall.
 local TweenService = game:GetService("TweenService")
 local noclipE = true
 local antifall = true
@@ -89,7 +88,7 @@ local Menu = Material.Load({
     Theme = "Dark"
 })
 local Main = Menu.New({
-    Title = "Normal Farms"
+    Title = "Main"
 })
 
 local B = Main.Toggle({
@@ -146,9 +145,92 @@ local B = Main.Toggle({
     Enabled = false
 })
 
+SelForm = nil
+local D = Main.Dropdown({
+    Text = "Form Selector",
+    Callback = function(Value)
+        SelForm = Value
+        local args = {
+            [1] = {
+                [1] = {
+                    [1] = SelForm,
+                    [2] = 0,
+                    [3] = 0,
+                    [4] = 0
+                },
+                [2] = "Modes"
+            }
+        }
+
+        game:GetService("ReplicatedStorage")._BindableEvents.RequestSkill:InvokeServer(unpack(args))
+        task.wait(0.5)
+        local args = {
+            [1] = {
+                ["Humanoid"] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+                ["Head"] = game:GetService("Players").LocalPlayer.Character.Head,
+                ["UpperTorso"] = game:GetService("Players").LocalPlayer.Character.UpperTorso,
+                ["HumanoidRootPart"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+                ["Character"] = game:GetService("Players").LocalPlayer.Character
+            },
+            [2] = game:GetService("Players").LocalPlayer.Status.Mode,
+            [3] = game:GetService("Players").LocalPlayer.Status.ModeActive,
+            [4] = game:GetService("Players").LocalPlayer.Status,
+            [5] = false
+        }
+
+        game:GetService("ReplicatedStorage")._BindableEvents.Transform:InvokeServer(unpack(args))
+
+    end,
+    Options = {"Kaioken", "FSSJ", "SSJ", "SSJ2", "SSJ3", "SSJ4", "SSJG", "SSJB", "SSJR", "SSJBE", "UI", "MUI", "SSJR3",
+               "GALAXY", "ZENO", "ZAIKO", "YAMOSHI", "Chronos", "Universe", "UltraEgo", "SSJ20K", "DemonPower",
+               "------", "Gamepass Forms Below", "GOD", "Zamasu", "SSJB4", "SSJG4", "LSSJ", "SSJ5", "OmegaSSJ", "Angel",
+               "DarkAngel", "Zenopower", "Jiren", "TimeBreaker"},
+    Menu = {
+        Information = function(self)
+            Menu.Banner({
+                Text = "Form Selector"
+            })
+        end
+    }
+})
+
+SelSkill = nil
+local D = Main.Dropdown({
+    Text = "Skill Selector",
+    Callback = function(Value)
+        SelSkill = Value
+        local args = {
+            [1] = {
+                [1] = {
+                    [1] = SelSkill,
+                    [2] = 0,
+                    [3] = 0,
+                    [4] = 0
+                },
+                [2] = "Skills"
+            }
+        }
+
+        game:GetService("ReplicatedStorage")._BindableEvents.RequestSkill:InvokeServer(unpack(args))
+    end,
+    Options = {"Teleport", "Pressure blow", "High Speed Rush", "Barrage", "Slashes", "Bone Crush", "Wolf Fang",
+               "Kamehameha", "Galick Gun", "Blast Volley", "Kamehameha X 10", "Final Flash", "Masenko",
+               "Big Bang Attack", "Super Kamehameha", "Black Kamehameha", "Spirit Bomb", "Super Nova",
+               "Final Kamehameha", "Death Ball", "Rainbow Beam", "Rainbow Bomb", "------", "Gamepass Skills Below",
+               "HakaiBlast", "SoulPunisher", "Big Bang Kamehameha - no work ;c", "OmegaBlaster", "PlanetDestroyer"},
+    Menu = {
+        Information = function(self)
+            Menu.Banner({
+                Text = "Place Selector"
+            })
+        end
+    }
+})
+
 local Misc = Menu.New({
     Title = "Misc"
 })
+
 local B = Misc.Toggle({
     Text = "Hide Overhead",
     Callback = function(Value)
@@ -165,81 +247,10 @@ local B = Misc.Toggle({
     Enabled = false
 })
 
-SelForm = nil
-local D = Misc.Dropdown({
-	Text = "Form Selector",
-	Callback = function(Value)
-        SelForm = Value
-        local args = {
-            [1] = {
-                [1] = {
-                    [1] = SelForm,
-                    [2] = 0,
-                    [3] = 0,
-                    [4] = 0
-                },
-                [2] = "Modes"
-            }
-        }
-        
-        game:GetService("ReplicatedStorage")._BindableEvents.RequestSkill:InvokeServer(unpack(args))
-        task.wait(0.5)
-        local args = {
-            [1] = {
-                ["Humanoid"] = game:GetService("Players").LocalPlayer.Character.Humanoid,
-                ["Head"] = game:GetService("Players").LocalPlayer.Character.Head,
-                ["UpperTorso"] = game:GetService("Players").LocalPlayer.Character.UpperTorso,
-                ["HumanoidRootPart"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
-                ["Character"] = game:GetService("Players").LocalPlayer.Character
-            },
-            [2] = game:GetService("Players").LocalPlayer.Status.Mode,
-            [3] = game:GetService("Players").LocalPlayer.Status.ModeActive,
-            [4] = game:GetService("Players").LocalPlayer.Status,
-            [5] = false
-        }
-        
-        game:GetService("ReplicatedStorage")._BindableEvents.Transform:InvokeServer(unpack(args))
-        
-	end,
-	Options = {
-        "Kaioken",
-        "FSSJ",
-        "SSJ",
-        "SSJ2",
-        "SSJ3",
-        "SSJ4",
-        "SSJG",
-        "SSJB",
-        "SSJR",
-        "SSJBE",
-        "UI",
-        "MUI",
-        "SSJR3",
-        "GALAXY",
-        "ZENO",
-        "ZAIKO",
-        "YAMOSHI",
-        "Chronos",
-        "Universe",
-        "UltraEgo",
-        "SSJ20K",
-        "DemonPower",
-        "More to Come"
-	},
-	Menu = {
-		Information = function(self)
-			Menu.Banner({
-				Text = "Form Selector"
-			})
-		end
-	}
-})
-
-
 SelPlace = nil
 local D = Misc.Dropdown({
-	Text = "Map Teleport",
-	Callback = function(Value)
+    Text = "Map Teleport",
+    Callback = function(Value)
         SelPlace = Value
         if SelPlace == "Earth" then
             PlaceTP(9701414321)
@@ -256,38 +267,33 @@ local D = Misc.Dropdown({
         elseif SelPlace == "GOD TIME CHAMBER" then
             PlaceTP(7198416252)
         end
-	end,
-	Options = {
-		"Earth",
-		"Gravity Chamber",
-		"Time Chamber",
-		"Supreme Kai World",
-		"Bill's Planet",
-        "Zeno Palace",
-        "GOD TIME CHAMBER"
-	},
-	Menu = {
-		Information = function(self)
-			Menu.Banner({
-				Text = "Place Selector"
-			})
-		end
-	}
+    end,
+    Options = {"Earth", "Gravity Chamber", "Time Chamber", "Supreme Kai World", "Bill's Planet", "Zeno Palace",
+               "GOD TIME CHAMBER"},
+    Menu = {
+        Information = function(self)
+            Menu.Banner({
+                Text = "Place Selector"
+            })
+        end
+    }
 })
 
 local DBStuff = Menu.New({
-    Title = "Dragon Ball Abuse"
+    Title = "Wish Exploit"
 })
 local B = DBStuff.Toggle({
-    Text = "Combat + Defense Wish Abuse",
+    Text = "Combat + Defense Wish Exploit",
     Callback = function(Value)
-        CDAbuse = Value
+        CDExploit = Value
         local maxIterations = 1
         local iterations = 0
-        while CDAbuse do
+        while CDExploit do
             iterations = iterations + 1
             if iterations == maxIterations then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").Map.DBS.DB.DB1.Position + Vector3.new(0, 3, 0)) * CFrame.Angles(math.rad(0), 0, 0)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(
+                    game:GetService("Workspace").Map.DBS.DB.DB1.Position + Vector3.new(0, 3, 0)) *
+                                                                                 CFrame.Angles(math.rad(0), 0, 0)
                 noclip()
                 fireproximityprompt(game:GetService("Workspace").Map.DBS.DB.DB1.ProximityPrompt)
                 game:GetService("ReplicatedStorage").PublicModules.Eventos.Pidio:InvokeServer("Attack")
@@ -299,17 +305,18 @@ local B = DBStuff.Toggle({
     Enabled = false
 })
 
-
 local B = DBStuff.Toggle({
-    Text = "Speed + Energy Wish Abuse",
+    Text = "Speed + Energy Wish Exploit",
     Callback = function(Value)
-        SEAbuse = Value
+        SEExploit = Value
         local maxIterations = 1
         local iterations = 0
-        while SEAbuse do
+        while SEExploit do
             iterations = iterations + 1
             if iterations == maxIterations then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").Map.DBS.DB.DB1.Position + Vector3.new(0, 3, 0)) * CFrame.Angles(math.rad(0), 0, 0)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(
+                    game:GetService("Workspace").Map.DBS.DB.DB1.Position + Vector3.new(0, 3, 0)) *
+                                                                                 CFrame.Angles(math.rad(0), 0, 0)
                 noclip()
                 fireproximityprompt(game:GetService("Workspace").Map.DBS.DB.DB1.ProximityPrompt)
                 game:GetService("ReplicatedStorage").PublicModules.Eventos.Pidio:InvokeServer("Ki")
@@ -321,17 +328,18 @@ local B = DBStuff.Toggle({
     Enabled = false
 })
 
-
 local B = DBStuff.Toggle({
-    Text = "Zenni Wish Abuse",
+    Text = "Zenni Wish Exploit",
     Callback = function(Value)
-        ZAbuse = Value
+        ZExploit = Value
         local maxIterations = 1
         local iterations = 0
-        while ZAbuse do
+        while ZExploit do
             iterations = iterations + 1
             if iterations == maxIterations then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").Map.DBS.DB.DB1.Position + Vector3.new(0, 3, 0)) * CFrame.Angles(math.rad(0), 0, 0)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(
+                    game:GetService("Workspace").Map.DBS.DB.DB1.Position + Vector3.new(0, 3, 0)) *
+                                                                                 CFrame.Angles(math.rad(0), 0, 0)
                 noclip()
                 fireproximityprompt(game:GetService("Workspace").Map.DBS.DB.DB1.ProximityPrompt)
                 game:GetService("ReplicatedStorage").PublicModules.Eventos.Pidio:InvokeServer("Zenni")
