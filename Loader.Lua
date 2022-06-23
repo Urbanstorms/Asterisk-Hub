@@ -52,8 +52,8 @@ if shitsngiggles[getgenv().UrbanKey] then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/JoJo%3A%20Golden%20Records.lua')
     elseif game.GameId == 3536510697 then
         LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Strong%20Piece.lua')
-    elseif game.GameId == 0 then
-        LoadScript('')
+    elseif game.GameId == 2797846657 then
+        LoadScript('https://raw.githubusercontent.com/Urbanstorms/Asterisk-Hub/main/Dragon%20Ball%20Revenge.lua')
     elseif game.GameId == 0 then
         LoadScript('')
     else
