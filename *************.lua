@@ -11,7 +11,7 @@ Keys_Table = {
     ["I GOT COVID"] = false, --Expired 6/14/2022
     ["WeGettinUpdatesBois!"] = false, --Expired 6/22/2022
     ["HowsLife?"] = false, --Expired 6/27/2022
-    ["DragonBalls"] = true, --Exipred 7/8/2022
+    ["DragonBalls"] = false, --Exipred 7/8/2022
     ["Pog"] = true, --Active
     [""] = false, --InActive
     
