@@ -11,7 +11,8 @@ Keys_Table = {
     ["I GOT COVID"] = false, --Expired 6/14/2022
     ["WeGettinUpdatesBois!"] = false, --Expired 6/22/2022
     ["HowsLife?"] = false, --Expired 6/27/2022
-    ["DragonBalls"] = true, --Active
+    ["DragonBalls"] = true, --Exipred 7/8/2022
+    ["Pog"] = true, --Active
     [""] = false, --InActive
     
     ["Poggers!"] = true --Urban's perma key, you can ofc use this but I'll probably change it if I see its use from time to time.
